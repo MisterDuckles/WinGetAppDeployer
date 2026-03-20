@@ -1,0 +1,64 @@
+<Window x:Class="WinAppInstaller.Views.InstallWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Installing Applications"
+        Height="600"
+        Width="700"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="#F5F5F5">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="Installing Applications"
+                   FontSize="24"
+                   FontWeight="SemiBold"
+                   Margin="0,0,0,20"/>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="InstallLogPanel">
+                <!-- Install progress for each app will be added here -->
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Row="2"
+                Background="White"
+                BorderBrush="#E0E0E0"
+                BorderThickness="1"
+                CornerRadius="8"
+                Padding="15"
+                Margin="0,20,0,0">
+            <Grid>
+                <StackPanel>
+                    <TextBlock x:Name="CurrentAppText"
+                               Text="Installing app 0 of 0..."
+                               FontSize="14"
+                               FontWeight="Medium"/>
+                    <ProgressBar x:Name="OverallProgressBar"
+                                 Height="8"
+                                 Minimum="0"
+                                 Maximum="100"
+                                 Margin="0,10,0,0"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Button Grid.Row="3"
+                x:Name="CloseButton"
+                Content="Close"
+                Width="120"
+                Height="40"
+                Margin="0,15,0,0"
+                HorizontalAlignment="Right"
+                Click="CloseButton_Click"
+                IsEnabled="False"/>
+    </Grid>
+</Window>

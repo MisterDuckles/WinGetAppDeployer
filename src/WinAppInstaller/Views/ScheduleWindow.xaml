@@ -1,0 +1,83 @@
+<Window x:Class="WinAppInstaller.Views.ScheduleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Setup Auto-Update"
+        Height="400"
+        Width="500"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="#F5F5F5">
+
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="⏰ Setup Automatic Updates"
+                   FontSize="24"
+                   FontWeight="SemiBold"
+                   Margin="0,0,0,20"/>
+
+        <Border Grid.Row="1"
+                Background="White"
+                BorderBrush="#E0E0E0"
+                BorderThickness="1"
+                CornerRadius="8"
+                Padding="20">
+            <StackPanel>
+                <TextBlock Text="Keep your apps up to date automatically"
+                           FontSize="14"
+                           TextWrapping="Wrap"
+                           Foreground="#757575"
+                           Margin="0,0,0,20"/>
+
+                <RadioButton x:Name="DailyRadio"
+                             Content="Check daily"
+                             GroupName="Schedule"
+                             IsChecked="True"
+                             Margin="0,0,0,15"/>
+
+                <StackPanel Orientation="Horizontal" Margin="25,0,0,15">
+                    <TextBlock Text="Time:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <TextBox x:Name="TimeTextBox"
+                             Text="09:00"
+                             Width="80"/>
+                </StackPanel>
+
+                <RadioButton x:Name="WeeklyRadio"
+                             Content="Check weekly (Monday)"
+                             GroupName="Schedule"
+                             Margin="0,0,0,15"/>
+
+                <RadioButton x:Name="OnStartupRadio"
+                             Content="Check on startup/login"
+                             GroupName="Schedule"
+                             Margin="0,0,0,15"/>
+
+                <TextBlock Text="Note: This will create a scheduled task in Windows Task Scheduler."
+                           FontSize="11"
+                           Foreground="#999"
+                           TextWrapping="Wrap"
+                           Margin="0,20,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,15,0,0">
+            <Button Content="Cancel"
+                    Width="100"
+                    Height="40"
+                    Margin="0,0,10,0"
+                    Click="CancelButton_Click"/>
+            <Button Content="Create Task"
+                    Width="120"
+                    Height="40"
+                    Click="CreateButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

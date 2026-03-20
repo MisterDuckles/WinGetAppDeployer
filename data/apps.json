@@ -1,0 +1,714 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-03-18",
+  "categories": [
+    {
+      "id": "browsers",
+      "name": "Browsers",
+      "icon": "🌐",
+      "description": "Web browsers for internet browsing",
+      "apps": [
+        {
+          "name": "Google Chrome",
+          "wingetId": "Google.Chrome",
+          "description": "Fast, secure browser by Google",
+          "popular": true
+        },
+        {
+          "name": "Mozilla Firefox",
+          "wingetId": "Mozilla.Firefox",
+          "description": "Privacy-focused open source browser",
+          "popular": true
+        },
+        {
+          "name": "Brave Browser",
+          "wingetId": "Brave.Brave",
+          "description": "Privacy browser with built-in ad blocker"
+        },
+        {
+          "name": "Microsoft Edge",
+          "wingetId": "Microsoft.Edge",
+          "description": "Chromium-based browser by Microsoft"
+        },
+        {
+          "name": "Opera",
+          "wingetId": "Opera.Opera",
+          "description": "Feature-rich browser with built-in VPN"
+        },
+        {
+          "name": "Opera GX",
+          "wingetId": "Opera.OperaGX",
+          "description": "Gaming browser with resource limiter"
+        },
+        {
+          "name": "Vivaldi",
+          "wingetId": "VivaldiTechnologies.Vivaldi",
+          "description": "Highly customizable browser for power users"
+        },
+        {
+          "name": "Tor Browser",
+          "wingetId": "TorProject.TorBrowser",
+          "description": "Anonymous browsing with Tor network"
+        },
+        {
+          "name": "LibreWolf",
+          "wingetId": "LibreWolf.LibreWolf",
+          "description": "Privacy-focused Firefox fork"
+        }
+      ]
+    },
+    {
+      "id": "development",
+      "name": "Development",
+      "icon": "💼",
+      "description": "Tools for software development",
+      "subcategories": [
+        {
+          "id": "ide-editors",
+          "name": "IDE & Editors",
+          "description": "Code editors and integrated development environments",
+          "apps": [
+            {
+              "name": "Visual Studio Code",
+              "wingetId": "Microsoft.VisualStudioCode",
+              "description": "Lightweight but powerful code editor",
+              "popular": true
+            },
+            {
+              "name": "Visual Studio 2022 Community",
+              "wingetId": "Microsoft.VisualStudio.2022.Community",
+              "description": "Full-featured IDE for .NET development"
+            },
+            {
+              "name": "JetBrains Rider",
+              "wingetId": "JetBrains.Rider",
+              "description": ".NET IDE by JetBrains"
+            },
+            {
+              "name": "JetBrains WebStorm",
+              "wingetId": "JetBrains.WebStorm",
+              "description": "JavaScript and TypeScript IDE"
+            },
+            {
+              "name": "JetBrains PyCharm Community",
+              "wingetId": "JetBrains.PyCharm.Community",
+              "description": "Python IDE"
+            },
+            {
+              "name": "Sublime Text",
+              "wingetId": "SublimeHQ.SublimeText.4",
+              "description": "Sophisticated text editor for code"
+            },
+            {
+              "name": "Notepad++",
+              "wingetId": "Notepad++.Notepad++",
+              "description": "Free source code editor",
+              "popular": true
+            },
+            {
+              "name": "Atom",
+              "wingetId": "GitHub.Atom",
+              "description": "Hackable text editor by GitHub"
+            }
+          ]
+        },
+        {
+          "id": "version-control",
+          "name": "Version Control",
+          "description": "Git clients and version control tools",
+          "apps": [
+            {
+              "name": "Git",
+              "wingetId": "Git.Git",
+              "description": "Distributed version control system",
+              "popular": true
+            },
+            {
+              "name": "GitHub Desktop",
+              "wingetId": "GitHub.GitHubDesktop",
+              "description": "Simple Git GUI for GitHub"
+            },
+            {
+              "name": "GitKraken",
+              "wingetId": "Axosoft.GitKraken",
+              "description": "Powerful cross-platform Git client"
+            },
+            {
+              "name": "TortoiseGit",
+              "wingetId": "TortoiseGit.TortoiseGit",
+              "description": "Windows Shell Interface to Git"
+            },
+            {
+              "name": "Sourcetree",
+              "wingetId": "Atlassian.Sourcetree",
+              "description": "Free Git GUI by Atlassian"
+            }
+          ]
+        },
+        {
+          "id": "runtimes",
+          "name": "Runtimes & Package Managers",
+          "description": "Programming language runtimes and package managers",
+          "apps": [
+            {
+              "name": "Node.js LTS",
+              "wingetId": "OpenJS.NodeJS.LTS",
+              "description": "JavaScript runtime (Long Term Support)"
+            },
+            {
+              "name": "Python 3.12",
+              "wingetId": "Python.Python.3.12",
+              "description": "Python programming language"
+            },
+            {
+              "name": ".NET SDK",
+              "wingetId": "Microsoft.DotNet.SDK.8",
+              "description": ".NET 8 Software Development Kit"
+            },
+            {
+              "name": "Go",
+              "wingetId": "GoLang.Go",
+              "description": "Go programming language"
+            },
+            {
+              "name": "Rust",
+              "wingetId": "Rustlang.Rust.MSVC",
+              "description": "Rust programming language"
+            },
+            {
+              "name": "Java JDK",
+              "wingetId": "Oracle.JDK.21",
+              "description": "Java Development Kit"
+            }
+          ]
+        },
+        {
+          "id": "containers",
+          "name": "Containers & Virtualization",
+          "description": "Docker, VMs, and containerization tools",
+          "apps": [
+            {
+              "name": "Docker Desktop",
+              "wingetId": "Docker.DockerDesktop",
+              "description": "Containerization platform"
+            },
+            {
+              "name": "VirtualBox",
+              "wingetId": "Oracle.VirtualBox",
+              "description": "Free virtualization software"
+            },
+            {
+              "name": "VMware Workstation Player",
+              "wingetId": "VMware.WorkstationPlayer",
+              "description": "Virtual machine player"
+            }
+          ]
+        },
+        {
+          "id": "databases",
+          "name": "Database Tools",
+          "description": "Database management and clients",
+          "apps": [
+            {
+              "name": "MySQL Workbench",
+              "wingetId": "Oracle.MySQLWorkbench",
+              "description": "Visual database design tool"
+            },
+            {
+              "name": "PostgreSQL",
+              "wingetId": "PostgreSQL.PostgreSQL",
+              "description": "Open source database"
+            },
+            {
+              "name": "MongoDB Compass",
+              "wingetId": "MongoDB.Compass.Full",
+              "description": "MongoDB GUI"
+            },
+            {
+              "name": "DBeaver",
+              "wingetId": "dbeaver.dbeaver",
+              "description": "Universal database tool"
+            }
+          ]
+        },
+        {
+          "id": "api-tools",
+          "name": "API & Testing Tools",
+          "description": "Tools for API development and testing",
+          "apps": [
+            {
+              "name": "Postman",
+              "wingetId": "Postman.Postman",
+              "description": "API development platform",
+              "popular": true
+            },
+            {
+              "name": "Insomnia",
+              "wingetId": "Insomnia.Insomnia",
+              "description": "API client and design platform"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "name": "Security & Privacy",
+      "icon": "🔐",
+      "description": "Password managers and security tools",
+      "apps": [
+        {
+          "name": "Bitwarden",
+          "wingetId": "Bitwarden.Bitwarden",
+          "description": "Open source password manager",
+          "popular": true
+        },
+        {
+          "name": "1Password",
+          "wingetId": "AgileBits.1Password",
+          "description": "Password manager for families and teams"
+        },
+        {
+          "name": "KeePassXC",
+          "wingetId": "KeePassXCTeam.KeePassXC",
+          "description": "Free offline password manager"
+        },
+        {
+          "name": "NordVPN",
+          "wingetId": "NordVPN.NordVPN",
+          "description": "Privacy-focused VPN service"
+        },
+        {
+          "name": "ProtonVPN",
+          "wingetId": "ProtonTechnologies.ProtonVPN",
+          "description": "Secure VPN from ProtonMail"
+        },
+        {
+          "name": "Malwarebytes",
+          "wingetId": "Malwarebytes.Malwarebytes",
+          "description": "Anti-malware software"
+        }
+      ]
+    },
+    {
+      "id": "productivity",
+      "name": "Productivity",
+      "icon": "📝",
+      "description": "Office suites and productivity tools",
+      "subcategories": [
+        {
+          "id": "office",
+          "name": "Office Suites",
+          "description": "Document, spreadsheet, and presentation software",
+          "apps": [
+            {
+              "name": "Microsoft Office 365",
+              "wingetId": "Microsoft.Office",
+              "description": "Complete Office suite (Word, Excel, PowerPoint)"
+            },
+            {
+              "name": "LibreOffice",
+              "wingetId": "TheDocumentFoundation.LibreOffice",
+              "description": "Free and open source office suite",
+              "popular": true
+            },
+            {
+              "name": "OnlyOffice Desktop",
+              "wingetId": "ONLYOFFICE.DesktopEditors",
+              "description": "Office suite with MS Office compatibility"
+            }
+          ]
+        },
+        {
+          "id": "notes",
+          "name": "Note-Taking & Knowledge",
+          "description": "Apps for notes, wikis, and knowledge management",
+          "apps": [
+            {
+              "name": "Notion",
+              "wingetId": "Notion.Notion",
+              "description": "All-in-one workspace for notes and docs"
+            },
+            {
+              "name": "Obsidian",
+              "wingetId": "Obsidian.Obsidian",
+              "description": "Markdown-based knowledge base",
+              "popular": true
+            },
+            {
+              "name": "OneNote",
+              "wingetId": "Microsoft.OneNote",
+              "description": "Digital notebook by Microsoft"
+            },
+            {
+              "name": "Evernote",
+              "wingetId": "Evernote.Evernote",
+              "description": "Note-taking and organization"
+            },
+            {
+              "name": "Joplin",
+              "wingetId": "Joplin.Joplin",
+              "description": "Open source note-taking app"
+            }
+          ]
+        },
+        {
+          "id": "pdf",
+          "name": "PDF Tools",
+          "description": "PDF readers and editors",
+          "apps": [
+            {
+              "name": "Adobe Acrobat Reader",
+              "wingetId": "Adobe.Acrobat.Reader.64-bit",
+              "description": "PDF reader by Adobe"
+            },
+            {
+              "name": "Sumatra PDF",
+              "wingetId": "SumatraPDF.SumatraPDF",
+              "description": "Lightweight PDF reader",
+              "popular": true
+            },
+            {
+              "name": "Foxit PDF Reader",
+              "wingetId": "Foxit.FoxitReader",
+              "description": "Fast PDF reader and editor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "communication",
+      "name": "Communication",
+      "icon": "💬",
+      "description": "Chat, video calls, and collaboration",
+      "apps": [
+        {
+          "name": "Discord",
+          "wingetId": "Discord.Discord",
+          "description": "Voice, video, and text chat platform",
+          "popular": true
+        },
+        {
+          "name": "Slack",
+          "wingetId": "SlackTechnologies.Slack",
+          "description": "Business communication platform"
+        },
+        {
+          "name": "Microsoft Teams",
+          "wingetId": "Microsoft.Teams",
+          "description": "Collaboration and video conferencing"
+        },
+        {
+          "name": "Zoom",
+          "wingetId": "Zoom.Zoom",
+          "description": "Video conferencing platform"
+        },
+        {
+          "name": "Telegram Desktop",
+          "wingetId": "Telegram.TelegramDesktop",
+          "description": "Cloud-based messaging app"
+        },
+        {
+          "name": "Signal",
+          "wingetId": "OpenWhisperSystems.Signal",
+          "description": "Private messenger with encryption"
+        },
+        {
+          "name": "Skype",
+          "wingetId": "Microsoft.Skype",
+          "description": "Video calling and messaging"
+        }
+      ]
+    },
+    {
+      "id": "media",
+      "name": "Media & Entertainment",
+      "icon": "🎵",
+      "description": "Music, video, and entertainment apps",
+      "subcategories": [
+        {
+          "id": "music-video",
+          "name": "Music & Video Players",
+          "description": "Media players and streaming",
+          "apps": [
+            {
+              "name": "VLC Media Player",
+              "wingetId": "VideoLAN.VLC",
+              "description": "Free and open source media player",
+              "popular": true
+            },
+            {
+              "name": "Spotify",
+              "wingetId": "Spotify.Spotify",
+              "description": "Music streaming service",
+              "popular": true
+            },
+            {
+              "name": "Audacity",
+              "wingetId": "Audacity.Audacity",
+              "description": "Free audio editor and recorder"
+            },
+            {
+              "name": "Foobar2000",
+              "wingetId": "PeterPawlowski.foobar2000",
+              "description": "Advanced audio player"
+            },
+            {
+              "name": "K-Lite Codec Pack",
+              "wingetId": "CodecGuide.K-LiteCodecPack.Standard",
+              "description": "Collection of audio and video codecs"
+            }
+          ]
+        },
+        {
+          "id": "gaming",
+          "name": "Gaming",
+          "description": "Gaming platforms and launchers",
+          "apps": [
+            {
+              "name": "Steam",
+              "wingetId": "Valve.Steam",
+              "description": "PC gaming platform by Valve",
+              "popular": true
+            },
+            {
+              "name": "Epic Games Launcher",
+              "wingetId": "EpicGames.EpicGamesLauncher",
+              "description": "Epic Games store and launcher"
+            },
+            {
+              "name": "EA App",
+              "wingetId": "ElectronicArts.EADesktop",
+              "description": "Electronic Arts game launcher"
+            },
+            {
+              "name": "GOG Galaxy",
+              "wingetId": "GOG.Galaxy",
+              "description": "DRM-free game platform"
+            },
+            {
+              "name": "Battle.net",
+              "wingetId": "Blizzard.BattleNet",
+              "description": "Blizzard game launcher"
+            },
+            {
+              "name": "Ubisoft Connect",
+              "wingetId": "Ubisoft.Connect",
+              "description": "Ubisoft game launcher"
+            }
+          ]
+        },
+        {
+          "id": "streaming",
+          "name": "Streaming & Recording",
+          "description": "Video recording and streaming tools",
+          "apps": [
+            {
+              "name": "OBS Studio",
+              "wingetId": "OBSProject.OBSStudio",
+              "description": "Free streaming and recording software",
+              "popular": true
+            },
+            {
+              "name": "StreamLabs Desktop",
+              "wingetId": "Streamlabs.StreamlabsOBS",
+              "description": "Streaming software based on OBS"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "utilities",
+      "name": "Utilities",
+      "icon": "🛠️",
+      "description": "System tools and utilities",
+      "subcategories": [
+        {
+          "id": "system",
+          "name": "System Tools",
+          "description": "System maintenance and optimization",
+          "apps": [
+            {
+              "name": "7-Zip",
+              "wingetId": "7zip.7zip",
+              "description": "Free file archiver with high compression",
+              "popular": true
+            },
+            {
+              "name": "WinRAR",
+              "wingetId": "RARLab.WinRAR",
+              "description": "Powerful archive manager"
+            },
+            {
+              "name": "Everything",
+              "wingetId": "voidtools.Everything",
+              "description": "Ultra-fast file search tool",
+              "popular": true
+            },
+            {
+              "name": "TreeSize Free",
+              "wingetId": "JAMSoftware.TreeSize.Free",
+              "description": "Disk space analyzer"
+            },
+            {
+              "name": "CCleaner",
+              "wingetId": "Piriform.CCleaner",
+              "description": "System cleaning and optimization"
+            },
+            {
+              "name": "Revo Uninstaller",
+              "wingetId": "RevoUninstaller.RevoUninstaller",
+              "description": "Advanced program uninstaller"
+            }
+          ]
+        },
+        {
+          "id": "file-transfer",
+          "name": "File Transfer & Sync",
+          "description": "FTP, cloud sync, and file sharing",
+          "apps": [
+            {
+              "name": "FileZilla",
+              "wingetId": "TimKosse.FileZilla.Client",
+              "description": "Free FTP client"
+            },
+            {
+              "name": "WinSCP",
+              "wingetId": "WinSCP.WinSCP",
+              "description": "SFTP and FTP client"
+            },
+            {
+              "name": "Syncthing",
+              "wingetId": "Syncthing.Syncthing",
+              "description": "Continuous file synchronization"
+            }
+          ]
+        },
+        {
+          "id": "remote",
+          "name": "Remote Access",
+          "description": "Remote desktop and access tools",
+          "apps": [
+            {
+              "name": "TeamViewer",
+              "wingetId": "TeamViewer.TeamViewer",
+              "description": "Remote access and support"
+            },
+            {
+              "name": "AnyDesk",
+              "wingetId": "AnyDeskSoftwareGmbH.AnyDesk",
+              "description": "Fast remote desktop software"
+            },
+            {
+              "name": "PuTTY",
+              "wingetId": "PuTTY.PuTTY",
+              "description": "SSH and telnet client"
+            }
+          ]
+        },
+        {
+          "id": "screenshot",
+          "name": "Screenshots & Screen Recording",
+          "description": "Tools for capturing screen content",
+          "apps": [
+            {
+              "name": "ShareX",
+              "wingetId": "ShareX.ShareX",
+              "description": "Feature-rich screenshot tool",
+              "popular": true
+            },
+            {
+              "name": "Greenshot",
+              "wingetId": "Greenshot.Greenshot",
+              "description": "Lightweight screenshot tool"
+            },
+            {
+              "name": "Lightshot",
+              "wingetId": "Skillbrains.Lightshot",
+              "description": "Quick screenshot tool"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "creative",
+      "name": "Creative & Design",
+      "icon": "🎨",
+      "description": "Graphics, video editing, and design tools",
+      "subcategories": [
+        {
+          "id": "graphics",
+          "name": "Graphics & Photo Editing",
+          "description": "Image editing and graphic design",
+          "apps": [
+            {
+              "name": "GIMP",
+              "wingetId": "GIMP.GIMP",
+              "description": "Free image editor",
+              "popular": true
+            },
+            {
+              "name": "Paint.NET",
+              "wingetId": "dotPDN.PaintDotNet",
+              "description": "Simple but powerful image editor"
+            },
+            {
+              "name": "Inkscape",
+              "wingetId": "Inkscape.Inkscape",
+              "description": "Free vector graphics editor"
+            },
+            {
+              "name": "Krita",
+              "wingetId": "KDE.Krita",
+              "description": "Digital painting application"
+            },
+            {
+              "name": "IrfanView",
+              "wingetId": "IrfanSkiljan.IrfanView",
+              "description": "Fast and compact image viewer"
+            }
+          ]
+        },
+        {
+          "id": "video-editing",
+          "name": "Video Editing",
+          "description": "Video editors and converters",
+          "apps": [
+            {
+              "name": "DaVinci Resolve",
+              "wingetId": "Blackmagic.DaVinciResolve",
+              "description": "Professional video editor"
+            },
+            {
+              "name": "Shotcut",
+              "wingetId": "Meltytech.Shotcut",
+              "description": "Free open source video editor"
+            },
+            {
+              "name": "HandBrake",
+              "wingetId": "HandBrake.HandBrake",
+              "description": "Video transcoder",
+              "popular": true
+            }
+          ]
+        },
+        {
+          "id": "3d",
+          "name": "3D & Modeling",
+          "description": "3D modeling and animation software",
+          "apps": [
+            {
+              "name": "Blender",
+              "wingetId": "BlenderFoundation.Blender",
+              "description": "Free 3D creation suite",
+              "popular": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
