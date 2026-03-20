@@ -59,7 +59,7 @@ Voeg toe aan je autounattend.xml of setup script:
 
 ```powershell
 # Download launcher
-$launcherUrl = "https://github.com/MisterDuckles/WinAppInstaller/releases/latest/download/Launcher.exe"
+$launcherUrl = "https://github.com/MisterDuckles/WinGetAppDeployer/releases/latest/download/Launcher.exe"
 $launcherPath = "$env:ProgramFiles\WinAppInstaller\Launcher.exe"
 
 New-Item -ItemType Directory -Path (Split-Path $launcherPath) -Force | Out-Null

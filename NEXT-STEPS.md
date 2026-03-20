@@ -18,7 +18,7 @@ Het project is volledig opgezet! Hier is wat je nu moet doen:
 cd d:\WinAppInstaller
 git add .
 git commit -m "Initial commit - WinAppInstaller v1.0.0"
-git remote add origin https://github.com/MisterDuckles/WinAppInstaller.git
+git remote add origin https://github.com/MisterDuckles/WinGetAppDeployer.git
 git push -u origin master
 ```
 
@@ -74,7 +74,7 @@ dotnet build src/Launcher/Launcher.csproj -c Release
 
 ```powershell
 # Download launcher
-Invoke-WebRequest -Uri "https://github.com/MisterDuckles/WinAppInstaller/releases/latest/download/Launcher.exe" -OutFile "C:\Temp\Launcher.exe"
+Invoke-WebRequest -Uri "https://github.com/MisterDuckles/WinGetAppDeployer/releases/latest/download/Launcher.exe" -OutFile "C:\Temp\Launcher.exe"
 
 # Run it
 Start-Process "C:\Temp\Launcher.exe"
@@ -102,7 +102,7 @@ Voeg toe aan je bestaande `debloat.ps1`:
 # Install WinAppInstaller
 Write-Host "Installing WinAppInstaller..." -ForegroundColor Cyan
 $installDir = "$env:ProgramFiles\WinAppInstaller"
-$launcherUrl = "https://github.com/MisterDuckles/WinAppInstaller/releases/latest/download/Launcher.exe"
+$launcherUrl = "https://github.com/MisterDuckles/WinGetAppDeployer/releases/latest/download/Launcher.exe"
 New-Item -ItemType Directory -Path $installDir -Force | Out-Null
 Invoke-WebRequest -Uri $launcherUrl -OutFile "$installDir\Launcher.exe" -UseBasicParsing
 

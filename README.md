@@ -43,7 +43,7 @@ WinAppInstaller/
 
 ```powershell
 # Clone repo
-git clone https://github.com/MisterDuckles/WinAppInstaller.git
+git clone https://github.com/MisterDuckles/WinGetAppDeployer.git
 cd WinAppInstaller
 
 # Build main app
@@ -61,7 +61,7 @@ dotnet build -c Release
 
 ### Optie 2: Download van GitHub Releases
 
-Download de nieuwste release van de [Releases pagina](https://github.com/MisterDuckles/WinAppInstaller/releases).
+Download de nieuwste release van de [Releases pagina](https://github.com/MisterDuckles/WinGetAppDeployer/releases).
 
 ## 🔧 Setup voor Autounattend.xml
 
@@ -82,7 +82,7 @@ Maak `install-winappinstaller.ps1`:
 
 ```powershell
 # Download launcher naar Program Files
-$launcherUrl = "https://github.com/MisterDuckles/WinAppInstaller/releases/latest/download/Launcher.exe"
+$launcherUrl = "https://github.com/MisterDuckles/WinGetAppDeployer/releases/latest/download/Launcher.exe"
 $installDir = "C:\Program Files\WinAppInstaller"
 $launcherPath = Join-Path $installDir "WinAppInstaller-Launcher.exe"
 
@@ -112,7 +112,7 @@ Voeg toe aan je `debloat.ps1`:
 ```powershell
 # Install WinAppInstaller
 Write-Host "Installing WinAppInstaller..."
-$launcherUrl = "https://github.com/MisterDuckles/WinAppInstaller/releases/latest/download/Launcher.exe"
+$launcherUrl = "https://github.com/MisterDuckles/WinGetAppDeployer/releases/latest/download/Launcher.exe"
 $installDir = "$env:ProgramFiles\WinAppInstaller"
 New-Item -ItemType Directory -Path $installDir -Force | Out-Null
 Invoke-WebRequest -Uri $launcherUrl -OutFile "$installDir\Launcher.exe"
@@ -217,7 +217,7 @@ dotnet publish -c Release -r win-x64 --self-contained false
 
 ```bash
 # Clone repository
-git clone https://github.com/MisterDuckles/WinAppInstaller.git
+git clone https://github.com/MisterDuckles/WinGetAppDeployer.git
 cd WinAppInstaller
 
 # Restore packages
@@ -299,7 +299,7 @@ MIT License - zie LICENSE file
 
 ## 📞 Support
 
-Issues of vragen? Open een [GitHub Issue](https://github.com/MisterDuckles/WinAppInstaller/issues)!
+Issues of vragen? Open een [GitHub Issue](https://github.com/MisterDuckles/WinGetAppDeployer/issues)!
 
 ---
 

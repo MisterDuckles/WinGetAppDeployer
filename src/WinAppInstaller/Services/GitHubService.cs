@@ -14,7 +14,7 @@ public class GitHubService
 {
     private readonly HttpClient _httpClient;
     private const string RepoOwner = "MisterDuckles";
-    private const string RepoName = "WinAppInstaller";
+    private const string RepoName = "WinGetAppDeployer";
     private const string CurrentVersion = "0.5.0";
 
     public GitHubService()

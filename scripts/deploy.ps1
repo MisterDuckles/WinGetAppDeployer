@@ -3,7 +3,7 @@
 
 param(
     [string]$GitHubUser = "MisterDuckles",
-    [string]$RepoName = "WinAppInstaller",
+    [string]$RepoName = "WinGetAppDeployer",
     [switch]$CreateDesktopShortcut = $true,
     [switch]$AutoLaunch = $true
 )

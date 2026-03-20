@@ -10,8 +10,8 @@ namespace WinAppInstaller.Launcher;
 
 class Program
 {
-    private const string RepoOwner = "MisterDuckles"; // TODO: Update this
-    private const string RepoName = "WinAppInstaller";
+    private const string RepoOwner = "MisterDuckles";
+    private const string RepoName = "WinGetAppDeployer";
     private static readonly string InstallPath = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
         "WinAppInstaller"
