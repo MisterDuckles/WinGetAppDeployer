@@ -34,10 +34,11 @@
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <TextBox Width="250" Margin="0,0,15,0"
-                             materialDesign:HintAssist.Hint="Search apps..."
-                             materialDesign:TextFieldAssist.HasClearButton="True"
                              x:Name="SearchBox"
-                             TextChanged="SearchBox_TextChanged"/>
+                             TextChanged="SearchBox_TextChanged"
+                             Padding="10,8"
+                             Background="White"
+                             Foreground="#212121"/>
                     <Button Content="⚙️" FontSize="20" Width="40" Height="40"
                             Style="{StaticResource MaterialDesignFlatButton}"
                             Click="SettingsButton_Click"/>
