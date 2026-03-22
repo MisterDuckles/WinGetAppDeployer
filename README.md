@@ -1,4 +1,4 @@
-# WinApp Installer 🪟
+# Winget App Deployer 🪟
 
 Een moderne, grafische applicatie voor het snel installeren van Windows-applicaties via Winget. Perfect om te gebruiken na een fresh Windows installatie!
 
@@ -17,9 +17,9 @@ Een moderne, grafische applicatie voor het snel installeren van Windows-applicat
 ## 🏗️ Project Structuur
 
 ```
-WinAppInstaller/
+WingetAppDeployer/
 ├── src/
-│   ├── WinAppInstaller/          # Main WPF app
+│   ├── WingetAppDeployer/          # Main WPF app
 │   │   ├── Models/                # Data models (App, Category, Settings)
 │   │   ├── Services/              # Business logic (Winget, GitHub, TaskScheduler)
 │   │   ├── Views/                 # XAML windows (Install, Settings, Schedule)
@@ -44,10 +44,10 @@ WinAppInstaller/
 ```powershell
 # Clone repo
 git clone https://github.com/MisterDuckles/WinGetAppDeployer.git
-cd WinAppInstaller
+cd WingetAppDeployer
 
 # Build main app
-cd src/WinAppInstaller
+cd src/WingetAppDeployer
 dotnet build -c Release
 
 # Build launcher
@@ -55,7 +55,7 @@ cd ../Launcher
 dotnet build -c Release
 
 # Executables zijn nu in:
-# - src/WinAppInstaller/bin/Release/net8.0-windows/WinAppInstaller.exe
+# - src/WingetAppDeployer/bin/Release/net8.0-windows/WingetAppDeployer.exe
 # - src/Launcher/bin/Release/net8.0-windows/Launcher.exe
 ```
 
@@ -65,7 +65,7 @@ Download de nieuwste release van de [Releases pagina](https://github.com/MisterD
 
 ## 🔧 Setup voor Autounattend.xml
 
-Integreer WinAppInstaller in je Windows unattended installatie:
+Integreer WingetAppDeployer in je Windows unattended installatie:
 
 ### 1. Voeg PowerShell script toe aan autounattend.xml
 
@@ -83,8 +83,8 @@ Maak `install-winappinstaller.ps1`:
 ```powershell
 # Download launcher naar Program Files
 $launcherUrl = "https://github.com/MisterDuckles/WinGetAppDeployer/releases/latest/download/Launcher.exe"
-$installDir = "C:\Program Files\WinAppInstaller"
-$launcherPath = Join-Path $installDir "WinAppInstaller-Launcher.exe"
+$installDir = "C:\Program Files\WingetAppDeployer"
+$launcherPath = Join-Path $installDir "WingetAppDeployer-Launcher.exe"
 
 # Create directory
 New-Item -ItemType Directory -Path $installDir -Force | Out-Null
@@ -110,10 +110,10 @@ Start-Process $launcherPath
 Voeg toe aan je `debloat.ps1`:
 
 ```powershell
-# Install WinAppInstaller
-Write-Host "Installing WinAppInstaller..."
+# Install WingetAppDeployer
+Write-Host "Installing WingetAppDeployer..."
 $launcherUrl = "https://github.com/MisterDuckles/WinGetAppDeployer/releases/latest/download/Launcher.exe"
-$installDir = "$env:ProgramFiles\WinAppInstaller"
+$installDir = "$env:ProgramFiles\WingetAppDeployer"
 New-Item -ItemType Directory -Path $installDir -Force | Out-Null
 Invoke-WebRequest -Uri $launcherUrl -OutFile "$installDir\Launcher.exe"
 
@@ -167,7 +167,7 @@ Na het installeren van apps wordt gevraagd of je auto-updates wil instellen:
 
 Dit maakt een scheduled task aan in Task Scheduler die:
 ```powershell
-WinAppInstaller.exe /autoupdate
+WingetAppDeployer.exe /autoupdate
 ```
 uitvoert, welke `winget upgrade --all` runt.
 
@@ -182,7 +182,7 @@ De app checkt automatisch bij opstarten naar nieuwe versies op GitHub. Als er ee
 **Handmatig checken:**
 ```powershell
 # Windows Task Scheduler task
-schtasks /run /tn "WinAppInstaller_AutoUpdate"
+schtasks /run /tn "WingetAppDeployer_AutoUpdate"
 ```
 
 ## 📦 GitHub Release Proces
@@ -191,7 +191,7 @@ schtasks /run /tn "WinAppInstaller_AutoUpdate"
 
 ```powershell
 # Build main app
-cd src/WinAppInstaller
+cd src/WingetAppDeployer
 dotnet publish -c Release -r win-x64 --self-contained false
 
 # Build launcher
@@ -205,7 +205,7 @@ dotnet publish -c Release -r win-x64 --self-contained false
 2. Tag version: `v1.0.0`
 3. Release title: `WinApp Installer v1.0.0`
 4. Upload:
-   - `WinAppInstaller.exe` (main app)
+   - `WingetAppDeployer.exe` (main app)
    - `Launcher.exe` (bootstrap launcher)
 5. Publish release
 
@@ -218,15 +218,15 @@ dotnet publish -c Release -r win-x64 --self-contained false
 ```bash
 # Clone repository
 git clone https://github.com/MisterDuckles/WinGetAppDeployer.git
-cd WinAppInstaller
+cd WingetAppDeployer
 
 # Restore packages
-dotnet restore src/WinAppInstaller/WinAppInstaller.csproj
+dotnet restore src/WingetAppDeployer/WingetAppDeployer.csproj
 dotnet restore src/Launcher/Launcher.csproj
 
 # Open in IDE
-# Visual Studio: Open WinAppInstaller.sln
-# Rider: Open WinAppInstaller.sln
+# Visual Studio: Open WingetAppDeployer.sln
+# Rider: Open WingetAppDeployer.sln
 # VS Code: Open folder
 ```
 
@@ -290,7 +290,7 @@ MIT License - zie LICENSE file
 ### "Scheduled task failed"
 - Run app als Administrator
 - Check Task Scheduler voor error logs
-- Task naam: `WinAppInstaller_AutoUpdate`
+- Task naam: `WingetAppDeployer_AutoUpdate`
 
 ### App installeert niet
 - Check winget: `winget search <appname>`

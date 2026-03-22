@@ -1,8 +1,8 @@
 using System.Windows;
 using System.Windows.Controls;
-using WinAppInstaller.Models;
+using WingetAppDeployer.Models;
 
-namespace WinAppInstaller.Views;
+namespace WingetAppDeployer.Views;
 
 public partial class SettingsWindow : Window
 {

@@ -1,9 +1,9 @@
 using System;
 using System.IO;
 using Newtonsoft.Json;
-using WinAppInstaller.Models;
+using WingetAppDeployer.Models;
 
-namespace WinAppInstaller.Services;
+namespace WingetAppDeployer.Services;
 
 public class SettingsService
 {
@@ -14,7 +14,7 @@ public class SettingsService
     {
         var appDataPath = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-            "WinAppInstaller"
+            "WingetAppDeployer"
         );
 
         Directory.CreateDirectory(appDataPath);

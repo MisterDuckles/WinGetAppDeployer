@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
 using System.Windows;
-using WinAppInstaller.Services;
+using WingetAppDeployer.Services;
 
-namespace WinAppInstaller;
+namespace WingetAppDeployer;
 
 public partial class App : Application
 {

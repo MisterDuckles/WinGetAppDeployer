@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace WinAppInstaller.Models;
+namespace WingetAppDeployer.Models;
 
 public class AppDatabase
 {

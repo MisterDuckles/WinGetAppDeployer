@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.IO;
-using WinAppInstaller.Models;
+using WingetAppDeployer.Models;
 using Newtonsoft.Json;
 
-namespace WinAppInstaller.Services;
+namespace WingetAppDeployer.Services;
 
 public class GitHubService
 {
@@ -20,7 +20,7 @@ public class GitHubService
     public GitHubService()
     {
         _httpClient = new HttpClient();
-        _httpClient.DefaultRequestHeaders.Add("User-Agent", "WinAppInstaller");
+        _httpClient.DefaultRequestHeaders.Add("User-Agent", "WingetAppDeployer");
     }
 
     /// <summary>
@@ -105,7 +105,7 @@ public class GitHubService
     {
         try
         {
-            var tempPath = Path.Combine(Path.GetTempPath(), "WinAppInstaller_Update.exe");
+            var tempPath = Path.Combine(Path.GetTempPath(), "WingetAppDeployer_Update.exe");
 
             using var response = await _httpClient.GetAsync(downloadUrl, HttpCompletionOption.ResponseHeadersRead);
             response.EnsureSuccessStatusCode();

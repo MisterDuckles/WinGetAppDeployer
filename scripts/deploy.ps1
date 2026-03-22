@@ -1,5 +1,5 @@
-# Deploy script voor WinAppInstaller
-# Dit script download en installeert WinAppInstaller op een nieuwe Windows installatie
+# Deploy script voor WingetAppDeployer
+# Dit script download en installeert WingetAppDeployer op een nieuwe Windows installatie
 
 param(
     [string]$GitHubUser = "MisterDuckles",
@@ -9,13 +9,13 @@ param(
 )
 
 Write-Host "==================================" -ForegroundColor Cyan
-Write-Host "  WinApp Installer Deployment" -ForegroundColor Cyan
+Write-Host "  Winget App Deployer Deployment" -ForegroundColor Cyan
 Write-Host "==================================" -ForegroundColor Cyan
 Write-Host ""
 
 # Setup paths
-$installDir = "$env:ProgramFiles\WinAppInstaller"
-$launcherPath = Join-Path $installDir "WinAppInstaller-Launcher.exe"
+$installDir = "$env:ProgramFiles\WingetAppDeployer"
+$launcherPath = Join-Path $installDir "WingetAppDeployer-Launcher.exe"
 $launcherUrl = "https://github.com/$GitHubUser/$RepoName/releases/latest/download/Launcher.exe"
 
 try {
@@ -52,7 +52,7 @@ try {
             $publicDesktop = [Environment]::GetFolderPath([Environment+SpecialFolder]::Desktop)
         }
 
-        $shortcutPath = Join-Path $publicDesktop "WinApp Installer.lnk"
+        $shortcutPath = Join-Path $publicDesktop "Winget App Deployer.lnk"
 
         $WshShell = New-Object -ComObject WScript.Shell
         $Shortcut = $WshShell.CreateShortcut($shortcutPath)
@@ -69,7 +69,7 @@ try {
 
     # Auto-launch
     if ($AutoLaunch) {
-        Write-Host "[4/4] Launching WinApp Installer..." -ForegroundColor Yellow
+        Write-Host "[4/4] Launching Winget App Deployer..." -ForegroundColor Yellow
         Start-Process $launcherPath
         Write-Host "      Launched successfully!" -ForegroundColor Green
     } else {
@@ -81,7 +81,7 @@ try {
     Write-Host "  Installation Complete! ✓" -ForegroundColor Green
     Write-Host "==================================" -ForegroundColor Green
     Write-Host ""
-    Write-Host "WinApp Installer has been installed to:" -ForegroundColor White
+    Write-Host "Winget App Deployer has been installed to:" -ForegroundColor White
     Write-Host "  $installDir" -ForegroundColor Cyan
     Write-Host ""
     Write-Host "The launcher will automatically download the latest version from GitHub" -ForegroundColor Gray

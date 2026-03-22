@@ -8,7 +8,7 @@
     <!-- <ApplicationIcon>Resources\app.ico</ApplicationIcon> -->
     <Version>0.5.0</Version>
     <Authors>Daan</Authors>
-    <Product>WinApp Installer</Product>
+    <Product>Winget App Deployer</Product>
     <Description>Modern Windows application installer using Winget</Description>
   </PropertyGroup>
 

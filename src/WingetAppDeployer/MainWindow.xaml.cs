@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using WinAppInstaller.Models;
-using WinAppInstaller.Services;
-using WinAppInstaller.Views;
-using AppModel = WinAppInstaller.Models.App;
+using WingetAppDeployer.Models;
+using WingetAppDeployer.Services;
+using WingetAppDeployer.Views;
+using AppModel = WingetAppDeployer.Models.App;
 
-namespace WinAppInstaller;
+namespace WingetAppDeployer;
 
 public partial class MainWindow : Window
 {

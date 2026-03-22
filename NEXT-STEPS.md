@@ -1,4 +1,4 @@
-# WinAppInstaller - Volgende Stappen
+# WingetAppDeployer - Volgende Stappen
 
 Het project is volledig opgezet! Hier is wat je nu moet doen:
 
@@ -7,7 +7,7 @@ Het project is volledig opgezet! Hier is wat je nu moet doen:
 ### A. Update GitHub gebruikersnaam
 
 ✅ **Voltooid!** GitHub username is al ingesteld op `MisterDuckles` in:
-- ✅ `src/WinAppInstaller/Services/GitHubService.cs`
+- ✅ `src/WingetAppDeployer/Services/GitHubService.cs`
 - ✅ `src/Launcher/Program.cs`
 - ✅ `README.md`
 - ✅ `INTEGRATIE.md`
@@ -15,9 +15,9 @@ Het project is volledig opgezet! Hier is wat je nu moet doen:
 ### B. Maak GitHub Repository
 
 ```bash
-cd d:\WinAppInstaller
+cd d:\WingetAppDeployer
 git add .
-git commit -m "Initial commit - WinAppInstaller v1.0.0"
+git commit -m "Initial commit - WingetAppDeployer v1.0.0"
 git remote add origin https://github.com/MisterDuckles/WinGetAppDeployer.git
 git push -u origin master
 ```
@@ -26,19 +26,19 @@ git push -u origin master
 
 ### Optie A: Visual Studio / Rider
 
-1. Open `WinAppInstaller.sln`
+1. Open `WingetAppDeployer.sln`
 2. Build > Build Solution (Ctrl+Shift+B)
 3. Output files:
-   - `src/WinAppInstaller/bin/Release/net8.0-windows/WinAppInstaller.exe`
+   - `src/WingetAppDeployer/bin/Release/net8.0-windows/WingetAppDeployer.exe`
    - `src/Launcher/bin/Release/net8.0-windows/Launcher.exe`
 
 ### Optie B: Command Line
 
 ```bash
-cd d:\WinAppInstaller
+cd d:\WingetAppDeployer
 
 # Build main app
-dotnet build src/WinAppInstaller/WinAppInstaller.csproj -c Release
+dotnet build src/WingetAppDeployer/WingetAppDeployer.csproj -c Release
 
 # Build launcher
 dotnet build src/Launcher/Launcher.csproj -c Release
@@ -46,13 +46,13 @@ dotnet build src/Launcher/Launcher.csproj -c Release
 
 ## 3. Create GitHub Release
 
-1. Ga naar GitHub → Repositories → WinAppInstaller
+1. Ga naar GitHub → Repositories → WingetAppDeployer
 2. Klik "Releases" → "Create a new release"
 3. Tag version: `v1.0.0`
 4. Release title: `WinApp Installer v1.0.0`
 5. Description:
    ```
-   First release of WinAppInstaller!
+   First release of WingetAppDeployer!
 
    Features:
    - 200+ apps across 8 categories
@@ -65,7 +65,7 @@ dotnet build src/Launcher/Launcher.csproj -c Release
    ```
 6. Upload files:
    - `Launcher.exe` (from `src/Launcher/bin/Release/...`)
-   - `WinAppInstaller.exe` (from `src/WinAppInstaller/bin/Release/...`)
+   - `WingetAppDeployer.exe` (from `src/WingetAppDeployer/bin/Release/...`)
 7. Click "Publish release"
 
 ## 4. Test de Installatie
@@ -99,9 +99,9 @@ De launcher zou moeten:
 Voeg toe aan je bestaande `debloat.ps1`:
 
 ```powershell
-# Install WinAppInstaller
-Write-Host "Installing WinAppInstaller..." -ForegroundColor Cyan
-$installDir = "$env:ProgramFiles\WinAppInstaller"
+# Install WingetAppDeployer
+Write-Host "Installing WingetAppDeployer..." -ForegroundColor Cyan
+$installDir = "$env:ProgramFiles\WingetAppDeployer"
 $launcherUrl = "https://github.com/MisterDuckles/WinGetAppDeployer/releases/latest/download/Launcher.exe"
 New-Item -ItemType Directory -Path $installDir -Force | Out-Null
 Invoke-WebRequest -Uri $launcherUrl -OutFile "$installDir\Launcher.exe" -UseBasicParsing
@@ -117,7 +117,7 @@ $shortcut.Save()
 
 ```powershell
 # Download and run deploy script
-$deployScript = Invoke-WebRequest "https://raw.githubusercontent.com/MisterDuckles/WinAppInstaller/main/scripts/deploy.ps1" -UseBasicParsing
+$deployScript = Invoke-WebRequest "https://raw.githubusercontent.com/MisterDuckles/WingetAppDeployer/main/scripts/deploy.ps1" -UseBasicParsing
 Invoke-Expression $deployScript.Content
 ```
 
@@ -127,9 +127,9 @@ In een VM of test machine:
 
 1. Run je Windows 11 unattended installatie
 2. Debloat script zou moeten runnen
-3. WinAppInstaller launcher wordt geïnstalleerd
+3. WingetAppDeployer launcher wordt geïnstalleerd
 4. Desktop shortcut wordt aangemaakt
-5. Open WinAppInstaller
+5. Open WingetAppDeployer
 6. Test app installatie
 
 ## 7. Optioneel: Extra Features Toevoegen
@@ -149,7 +149,7 @@ Zie `CONTRIBUTING.md` voor features om toe te voegen:
 
 **Error: MaterialDesignThemes not found**
 ```bash
-dotnet restore src/WinAppInstaller/WinAppInstaller.csproj
+dotnet restore src/WingetAppDeployer/WingetAppDeployer.csproj
 ```
 
 **Error: .NET 8 not found**
@@ -169,15 +169,15 @@ dotnet restore src/WinAppInstaller/WinAppInstaller.csproj
 ### GitHub Release Issues
 
 **"Asset not found"**
-- Zorg dat je `Launcher.exe` en `WinAppInstaller.exe` upload
+- Zorg dat je `Launcher.exe` en `WingetAppDeployer.exe` upload
 - Exact die namen gebruiken (case-sensitive on Linux)
 
 ## Project Structure Overview
 
 ```
-d:\WinAppInstaller\
+d:\WingetAppDeployer\
 ├── src/
-│   ├── WinAppInstaller/          # Main WPF app
+│   ├── WingetAppDeployer/          # Main WPF app
 │   │   ├── Models/               # App, Category, Settings models
 │   │   ├── Services/             # Winget, GitHub, TaskScheduler services
 │   │   ├── Views/                # Install, Settings, Schedule windows
@@ -193,7 +193,7 @@ d:\WinAppInstaller\
 ├── README.md                     # Main documentation
 ├── INTEGRATIE.md                 # Integration guide
 ├── CONTRIBUTING.md               # Contribution guide
-└── WinAppInstaller.sln           # Visual Studio solution
+└── WingetAppDeployer.sln           # Visual Studio solution
 
 Total: ~25 files | ~3000 lines of code
 ```

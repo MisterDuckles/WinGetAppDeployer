@@ -1,6 +1,6 @@
 # Integratie met Windows11-Unattended-Debloat
 
-Dit document legt uit hoe je WinAppInstaller integreert met je bestaande Windows 11 unattended installatie.
+Dit document legt uit hoe je WingetAppDeployer integreert met je bestaande Windows 11 unattended installatie.
 
 ## Optie 1: Integreren in bestaande debloat.ps1
 
@@ -8,24 +8,24 @@ Voeg het volgende toe aan je `debloat.ps1` script (aan het einde):
 
 ```powershell
 # ============================================
-# Install WinAppInstaller
+# Install WingetAppDeployer
 # ============================================
-Write-Host "Installing WinAppInstaller..." -ForegroundColor Cyan
+Write-Host "Installing WingetAppDeployer..." -ForegroundColor Cyan
 
 try {
     # Configuration
     $gitHubUser = "MisterDuckles"
-    $repoName = "WinAppInstaller"
-    $installDir = "$env:ProgramFiles\WinAppInstaller"
+    $repoName = "WingetAppDeployer"
+    $installDir = "$env:ProgramFiles\WingetAppDeployer"
     $launcherUrl = "https://github.com/$gitHubUser/$repoName/releases/latest/download/Launcher.exe"
-    $launcherPath = Join-Path $installDir "WinAppInstaller-Launcher.exe"
+    $launcherPath = Join-Path $installDir "WingetAppDeployer-Launcher.exe"
 
     # Create directory
     New-Item -ItemType Directory -Path $installDir -Force | Out-Null
 
     # Download launcher
     Invoke-WebRequest -Uri $launcherUrl -OutFile $launcherPath -UseBasicParsing
-    Write-Host "✓ Downloaded WinAppInstaller Launcher" -ForegroundColor Green
+    Write-Host "✓ Downloaded WingetAppDeployer Launcher" -ForegroundColor Green
 
     # Create desktop shortcut for all users
     $publicDesktop = [Environment]::GetFolderPath([Environment+SpecialFolder]::CommonDesktopDirectory)
@@ -45,13 +45,13 @@ try {
     # Start-Process $launcherPath
 
 } catch {
-    Write-Host "✗ Failed to install WinAppInstaller: $($_.Exception.Message)" -ForegroundColor Red
+    Write-Host "✗ Failed to install WingetAppDeployer: $($_.Exception.Message)" -ForegroundColor Red
 }
 ```
 
 ## Optie 2: Aparte scheduled task (First Logon)
 
-Als je WinAppInstaller wil runnen bij eerste login (zoals je nu met je debloat script doet):
+Als je WingetAppDeployer wil runnen bij eerste login (zoals je nu met je debloat script doet):
 
 ### Methode A: Via Registry RunOnce
 
@@ -60,14 +60,14 @@ Voeg toe aan je autounattend.xml of setup script:
 ```powershell
 # Download launcher
 $launcherUrl = "https://github.com/MisterDuckles/WinGetAppDeployer/releases/latest/download/Launcher.exe"
-$launcherPath = "$env:ProgramFiles\WinAppInstaller\Launcher.exe"
+$launcherPath = "$env:ProgramFiles\WingetAppDeployer\Launcher.exe"
 
 New-Item -ItemType Directory -Path (Split-Path $launcherPath) -Force | Out-Null
 Invoke-WebRequest -Uri $launcherUrl -OutFile $launcherPath -UseBasicParsing
 
 # Add to RunOnce registry
 $runOncePath = "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce"
-Set-ItemProperty -Path $runOncePath -Name "WinAppInstaller" -Value $launcherPath
+Set-ItemProperty -Path $runOncePath -Name "WingetAppDeployer" -Value $launcherPath
 ```
 
 ### Methode B: Via Scheduled Task (zoals je huidige debloat setup)
@@ -78,20 +78,20 @@ Voeg toe aan je `autounattend.xml` in de `<FirstLogonCommands>` sectie:
 <SynchronousCommand wcm:action="add">
     <Order>20</Order>
     <CommandLine>powershell.exe -ExecutionPolicy Bypass -File C:\Setup\Scripts\install-winappinstaller.ps1</CommandLine>
-    <Description>Install WinAppInstaller</Description>
+    <Description>Install WingetAppDeployer</Description>
 </SynchronousCommand>
 ```
 
 En maak `C:\Setup\Scripts\install-winappinstaller.ps1`:
 
 ```powershell
-# Install and setup WinAppInstaller
-$taskName = "WinAppInstaller-FirstRun"
+# Install and setup WingetAppDeployer
+$taskName = "WingetAppDeployer-FirstRun"
 $gitHubUser = "MisterDuckles"
-$repoName = "WinAppInstaller"
+$repoName = "WingetAppDeployer"
 
 # Download launcher
-$installDir = "$env:ProgramFiles\WinAppInstaller"
+$installDir = "$env:ProgramFiles\WingetAppDeployer"
 $launcherPath = Join-Path $installDir "Launcher.exe"
 $launcherUrl = "https://github.com/$gitHubUser/$repoName/releases/latest/download/Launcher.exe"
 
@@ -116,7 +116,7 @@ $shortcut.Save()
 
 ## Optie 3: Volledig Standalone (Geen Integratie)
 
-Als je WinAppInstaller gewoon beschikbaar wil maken zonder automatische installatie:
+Als je WingetAppDeployer gewoon beschikbaar wil maken zonder automatische installatie:
 
 1. Build het project
 2. Upload releases naar GitHub
@@ -139,7 +139,7 @@ debloat.ps1
   ├─ Debloat Windows
   ├─ Remove OneDrive
   ├─ Install Firefox/Chrome
-  └─ ✨ NEW: Install WinAppInstaller
+  └─ ✨ NEW: Install WingetAppDeployer
        ├─ Download Launcher.exe
        ├─ Create Desktop Shortcut
        └─ (Optionally) Auto-launch
@@ -147,7 +147,7 @@ debloat.ps1
 
 ### Aangepaste launcher.ps1
 
-Update je bestaande `launcher.ps1` om ook WinAppInstaller te installeren:
+Update je bestaande `launcher.ps1` om ook WingetAppDeployer te installeren:
 
 ```powershell
 # ... jouw bestaande code ...
@@ -155,9 +155,9 @@ Update je bestaande `launcher.ps1` om ook WinAppInstaller te installeren:
 # Run debloat script
 Invoke-Expression $debloatScript
 
-# NEW: Install WinAppInstaller
-Write-Host "Installing WinAppInstaller..." -ForegroundColor Cyan
-$installerScript = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MisterDuckles/WinAppInstaller/main/scripts/deploy.ps1" -UseBasicParsing
+# NEW: Install WingetAppDeployer
+Write-Host "Installing WingetAppDeployer..." -ForegroundColor Cyan
+$installerScript = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MisterDuckles/WingetAppDeployer/main/scripts/deploy.ps1" -UseBasicParsing
 Invoke-Expression $installerScript.Content
 
 Write-Host "Setup complete!" -ForegroundColor Green
@@ -168,12 +168,12 @@ Write-Host "Setup complete!" -ForegroundColor Green
 1. **Test eerst lokaal** - Test de integratie in een VM voordat je het in production neemt
 2. **Error handling** - Voeg try/catch blocks toe voor betere error reporting
 3. **Logging** - Log alle stappen naar een file voor troubleshooting
-4. **User choice** - Overweeg om te vragen of user WinAppInstaller wil installeren
-5. **Timing** - Launch WinAppInstaller NA de debloat is voltooid
+4. **User choice** - Overweeg om te vragen of user WingetAppDeployer wil installeren
+5. **Timing** - Launch WingetAppDeployer NA de debloat is voltooid
 
 ## Troubleshooting
 
-### WinAppInstaller start niet
+### WingetAppDeployer start niet
 - Check of Winget beschikbaar is (`winget --version`)
 - Check internet connectie
 - Check Windows Defender/Firewall

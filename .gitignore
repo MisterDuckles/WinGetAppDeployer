@@ -76,7 +76,7 @@ $RECYCLE.BIN/
 *.dll
 *.pdb
 !Launcher.exe
-!WinAppInstaller.exe
+!WingetAppDeployer.exe
 
 # Publish profiles
 *.pubxml

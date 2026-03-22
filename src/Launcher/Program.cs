@@ -6,7 +6,7 @@ using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinAppInstaller.Launcher;
+namespace WingetAppDeployer.Launcher;
 
 class Program
 {
@@ -14,7 +14,7 @@ class Program
     private const string RepoName = "WinGetAppDeployer";
     private static readonly string InstallPath = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-        "WinAppInstaller"
+        "WingetAppDeployer"
     );
 
     [STAThread]
@@ -26,13 +26,13 @@ class Program
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Show loading message
-            await ShowMessageAsync("WinApp Installer", "Checking for the latest version...");
+            await ShowMessageAsync("Winget App Deployer", "Checking for the latest version...");
 
             // Ensure install directory exists
             Directory.CreateDirectory(InstallPath);
 
             // Check if app is already downloaded
-            var appPath = Path.Combine(InstallPath, "WinAppInstaller.exe");
+            var appPath = Path.Combine(InstallPath, "WingetAppDeployer.exe");
             var versionFilePath = Path.Combine(InstallPath, "version.txt");
 
             string? currentVersion = null;
@@ -58,7 +58,7 @@ class Program
             // Download if needed
             if (!File.Exists(appPath) || currentVersion != latestVersion)
             {
-                await ShowMessageAsync("WinApp Installer", $"Downloading version {latestVersion}...");
+                await ShowMessageAsync("Winget App Deployer", $"Downloading version {latestVersion}...");
 
                 var success = await DownloadFileAsync(downloadUrl, appPath);
 
@@ -110,7 +110,7 @@ class Program
         try
         {
             using var client = new HttpClient();
-            client.DefaultRequestHeaders.Add("User-Agent", "WinAppInstaller-Launcher");
+            client.DefaultRequestHeaders.Add("User-Agent", "WingetAppDeployer-Launcher");
 
             var url = $"https://api.github.com/repos/{RepoOwner}/{RepoName}/releases/latest";
             var response = await client.GetStringAsync(url);
@@ -127,7 +127,7 @@ class Program
             foreach (var asset in assets)
             {
                 var name = asset?["name"]?.ToString();
-                if (name != null && name.Equals("WinAppInstaller.exe", StringComparison.OrdinalIgnoreCase))
+                if (name != null && name.Equals("WingetAppDeployer.exe", StringComparison.OrdinalIgnoreCase))
                 {
                     var downloadUrl = asset["browser_download_url"]?.ToString();
                     return (version, downloadUrl);

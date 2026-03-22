@@ -2,11 +2,11 @@ using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace WinAppInstaller.Services;
+namespace WingetAppDeployer.Services;
 
 public class TaskSchedulerService
 {
-    private const string TaskName = "WinAppInstaller_AutoUpdate";
+    private const string TaskName = "WingetAppDeployer_AutoUpdate";
 
     /// <summary>
     /// Creates a scheduled task to check for app updates

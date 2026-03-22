@@ -1,7 +1,7 @@
 using System.Windows;
-using WinAppInstaller.Services;
+using WingetAppDeployer.Services;
 
-namespace WinAppInstaller.Views;
+namespace WingetAppDeployer.Views;
 
 public partial class ScheduleWindow : Window
 {

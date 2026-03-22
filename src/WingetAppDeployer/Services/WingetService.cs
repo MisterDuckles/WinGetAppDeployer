@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
-using WinAppInstaller.Models;
-using AppModel = WinAppInstaller.Models.App;
+using WingetAppDeployer.Models;
+using AppModel = WingetAppDeployer.Models.App;
 
-namespace WinAppInstaller.Services;
+namespace WingetAppDeployer.Services;
 
 public class WingetService
 {

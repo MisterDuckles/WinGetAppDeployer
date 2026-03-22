@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using WinAppInstaller.Models;
-using AppModel = WinAppInstaller.Models.App;
+using WingetAppDeployer.Models;
+using AppModel = WingetAppDeployer.Models.App;
 
-namespace WinAppInstaller.Views;
+namespace WingetAppDeployer.Views;
 
 public partial class InstallWindow : Window
 {

@@ -1,4 +1,4 @@
-namespace WinAppInstaller.Models;
+namespace WingetAppDeployer.Models;
 
 public enum AppTheme
 {
